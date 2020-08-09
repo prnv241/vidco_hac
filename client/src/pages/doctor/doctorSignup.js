@@ -38,6 +38,11 @@ const DoctorSignup = () => {
         axios.defaults.headers.common["Authorization"] = FBIdToken;
         setauthenticated(true);
         setuser(res.data.user);
+        setDisplayName("");
+        setEmail("");
+        setPassword("");
+        setConfirmPassword("");
+        history.push("/doctor/dashboard");
       } catch (error) {
         console.log(error);
       }
@@ -53,13 +58,6 @@ const DoctorSignup = () => {
         type: type,
       };
       docSignup(body);
-
-      setDisplayName("");
-      setEmail("");
-      setPassword("");
-      setConfirmPassword("");
-
-      history.push("/doctor/dashboard");
     } catch (error) {
       setErrorMsg(error.message);
     }

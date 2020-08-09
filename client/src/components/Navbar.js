@@ -1,13 +1,23 @@
 import React, { useContext } from "react";
 import { AppContext } from "../context api/Appcontext";
-import { Button } from "semantic-ui-react";
+import axios from 'axios';
+
 
 export default function Navbar() {
-  const { user } = useContext(AppContext);
-  const logout = {};
+  const { user, setuser } = useContext(AppContext);
+  const { setauthenticated } = useContext(AppContext);
+  const logout = () => {
+    if (localStorage.getItem('FBIdToken')) {
+      localStorage.setItem("FBIdToken", '');
+      axios.defaults.headers.common["Authorization"] = '';
+      setauthenticated(false);
+      setuser({});
+      window.location.href = "http://vidcoapp.netlify.app";
+    }
+  };
   return (
     <nav class="navbar navbar-expand-lg navbar navbar-dark bg-primary">
-      <a class="navbar-brand" href="#">
+      <a class="navbar-brand" href="http://vidcoapp.netlify.app">
         <h2>
           <strong>Vidco</strong>
         </h2>
@@ -25,15 +35,10 @@ export default function Navbar() {
       </button>
       <div class="collapse navbar-collapse" id="navbarNav">
         <ul class="navbar-nav ml-auto">
-          {/* <li class="nav-item">
-        <a class="nav-link" href="#">Dashboard</a>
-      </li> */}
           {user._id ? (
-            <Button onClick={logout} secondary class="nav-item">
-              <a class="nav-link" href="#">
-                Logout
-              </a>
-            </Button>
+            <a onClick={logout} class="nav-link btn btn-outline-light" href="#" style={{ color: 'white' }}>
+              Logout
+            </a>
           ) : null}
         </ul>
       </div>

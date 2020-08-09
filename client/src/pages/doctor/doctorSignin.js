@@ -25,6 +25,9 @@ const DoctorSignin = () => {
       axios.defaults.headers.common["Authorization"] = FBIdToken;
       setauthenticated(true);
       setuser(res.data.user);
+      setEmail("");
+      setPassword("");
+      history.push("/doctor/dashboard");
     } catch (error) {
       console.log(error);
     }
@@ -32,18 +35,12 @@ const DoctorSignin = () => {
 
   const handleSubmit = async (event) => {
     event.preventDefault();
-
     try {
       const body = {
         email: email,
         password: password,
       };
-
       docSignin(body);
-
-      setEmail("");
-      setPassword("");
-      history.push("/doctor/dashboard");
     } catch (error) {
       setErrorMsg(error.message);
     }

@@ -19,8 +19,6 @@ const PatientSignup = () => {
 
   const history = useHistory();
 
-
-
   const patSignup = async (data) => {
     try {
       const res = await axios.post("/api/v1/patient/signup", data);
@@ -29,6 +27,11 @@ const PatientSignup = () => {
       axios.defaults.headers.common["Authorization"] = FBIdToken;
       setauthenticated(true);
       setuser(res.data.user);
+      setDisplayName("");
+      setEmail("");
+      setPassword("");
+      setConfirmPassword("");
+      history.push("/patient/categories");
     } catch (error) {
       console.log(error);
     }
@@ -36,7 +39,6 @@ const PatientSignup = () => {
 
   const handleSubmit = async (event) => {
     event.preventDefault();
-
     if (password !== confirmPassword) {
       alert("passwords don't match");
       return;
@@ -48,15 +50,7 @@ const PatientSignup = () => {
         password: password,
         name: displayName,
       };
-
       patSignup(body);
-
-      setDisplayName("");
-      setEmail("");
-      setPassword("");
-      setConfirmPassword("");
-
-      history.push("/patient/dashboard");
     } catch (error) {
       setErrorMsg(error.message);
     }

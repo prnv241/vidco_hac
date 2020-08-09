@@ -64,7 +64,6 @@ const PatientDashboard = (props) => {
                 //After Successfull execution run this code...
                 props.history.push(newdata.data.session);
                 join.style.display = "none";
-                document.getElementById(`reqbtn${I}`).style.display = "block";
               });
             }
           } catch (err) {
@@ -159,7 +158,7 @@ const PatientDashboard = (props) => {
 
   return (
     <div>
-      <h2 style={{ marginTop: "4rem", textAlign: "center" }}>Doctors</h2>
+      <h2 style={{ marginTop: "4rem", textAlign: "center" }}>Health</h2>
       <div style={{ marginTop: "2rem" }}>{docsList()}</div>
     </div>
   );

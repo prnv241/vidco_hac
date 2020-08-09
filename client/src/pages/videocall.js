@@ -123,24 +123,25 @@ export class videocall extends Component {
 
   render() {
     return (
-      <div>
-        <p>
-          A Video Call Page{" "}
-          <span style={{ float: "right", marginRight: "50px" }}>
-            Time Remaining - {this.state.temp} Mins
-          </span>
+      <div className="container">
+        <p className="display-4 text-center mt-4">
+          A Video Call Page
         </p>
-        <p>Meeting Id - {this.props.match.params.id}</p>
-        <small>Share this meeting ID to join other people this meeting</small>
+        <span style={{ float: "right", marginRight: "50px", fontSize: '1.5rem' }}>
+          Time Remaining - {this.state.temp} Mins
+        </span>
+        <p style={{ fontSize: '1.5rem' }}>Meeting Id - {this.props.match.params.id}</p>
 
         <div id="video-grid" className="mt-5"></div>
         <div style={{ margin: "50px" }}>
           <Button id="closebut" floated="right" basic color="red">
             Leave
           </Button>
-          <Button onClick={this.extend} floated="right" basic color="blue">
-            Extend Time
+          <span className="float-right mr-3">
+            <Button onClick={this.extend} floated="right" basic color="blue">
+              Extend Time
           </Button>
+          </span>
         </div>
       </div>
     );
