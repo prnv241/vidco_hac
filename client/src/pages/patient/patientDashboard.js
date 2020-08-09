@@ -110,7 +110,9 @@ const PatientDashboard = (props) => {
                       <div id={"reqbtn" + i}>
                         <Button
                           floated="right"
-                          onClick={() => requestdoc(doc._id, doc.publicAccount, i)}
+                          onClick={() =>
+                            requestdoc(doc._id, doc.publicAccount, i)
+                          }
                           basic
                           color="green"
                         >
@@ -120,9 +122,7 @@ const PatientDashboard = (props) => {
                       <div id={"cancelbtn" + i} style={{ display: "none" }}>
                         <Button
                           floated="right"
-                          onClick={() =>
-                            cancelreq(doc._id, i)
-                          }
+                          onClick={() => cancelreq(doc._id, i)}
                           basic
                           color="red"
                         >
@@ -130,9 +130,15 @@ const PatientDashboard = (props) => {
                         </Button>
                       </div>
                       <div id={"joinbtn" + i} style={{ display: "none" }}>
-                        <Button floated="right" basic color="blue">
-                          Join
-                        </Button>
+                        <div>
+                          <Button floated="right" basic color="blue">
+                            Join
+                          </Button>
+                          <p>
+                            PLease wait for some time till transaction
+                            completed.
+                          </p>
+                        </div>
                       </div>
                     </div>
                   </Card.Content>
