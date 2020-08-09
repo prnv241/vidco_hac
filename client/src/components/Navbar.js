@@ -36,17 +36,9 @@ export default function Navbar() {
       <div class="collapse navbar-collapse" id="navbarNav">
         <ul class="navbar-nav ml-auto">
           {user._id ? (
-<<<<<<< HEAD
             <a onClick={logout} class="nav-link btn btn-outline-light" href="#" style={{ color: 'white' }}>
               Logout
             </a>
-=======
-            <Button onClick={logout} negative class="nav-item">
-              <a class="nav-link" href="#">
-                Logout
-              </a>
-            </Button>
->>>>>>> f62ff324b550c2350ce27906d2bbef4b56979fa0
           ) : null}
         </ul>
       </div>

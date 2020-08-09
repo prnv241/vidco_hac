@@ -138,7 +138,6 @@ export class videocall extends Component {
   render() {
     const { loadingExt, loadingOut } = this.state;
     return (
-<<<<<<< HEAD
       <div className="container">
         <p className="display-4 text-center mt-4">
           A Video Call Page
@@ -148,19 +147,6 @@ export class videocall extends Component {
         </span>
         <p style={{ fontSize: '1.5rem' }}>Meeting Id - {this.props.match.params.id}</p>
 
-=======
-      <div>
-        <div style={{ margin: "6rem" }}>
-          <div>
-            <h2>Call Connected</h2>
-            <span style={{ float: "right", marginRight: "50px" }}>
-              Time Remaining - {this.state.temp} Mins
-            </span>
-          </div>
-          <p>Meeting Id - {this.props.match.params.id}</p>
-          <small>Share this meeting ID to join other people this meeting</small>
-        </div>
->>>>>>> f62ff324b550c2350ce27906d2bbef4b56979fa0
         <div id="video-grid" className="mt-5"></div>
         <div style={{ margin: "50px" }}>
           <Button
@@ -172,20 +158,9 @@ export class videocall extends Component {
           >
             Leave
           </Button>
-<<<<<<< HEAD
           <span className="float-right mr-3">
             <Button onClick={this.extend} floated="right" basic color="blue">
               Extend Time
-=======
-          <Button
-            loading={loadingExt}
-            onClick={this.extend}
-            floated="right"
-            basic
-            color="blue"
-          >
-            Extend Time
->>>>>>> f62ff324b550c2350ce27906d2bbef4b56979fa0
           </Button>
           </span>
         </div>
